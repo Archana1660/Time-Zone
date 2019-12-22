@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!--Google font family-->
+  <link href="https://fonts.googleapis.com/css?family=Antic+Didone&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gelasio&display=swap" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="mdb-color darken-1">
+
+  <!-- Start your project here-->
+<!--Main Navigation-->
+<header class="text-center p-5">
+  <h1 class="display-3 font-weight-bold text-white">TIME-ZONE</h1>
+  <hr class="hr-light">
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main>
+  <div class="container">
+    <div class="row p-5">
+      <div class="col-md-6">
+        <!--Time Zone-->
+        <select onchange="giveTime(this)" class="browser-default custom-select">
+          <option selected>Choose the Country</option>
+          <option value="Asia/Shanghai">China</option>
+          <option value="Asia/Tokyo">Japan</option>
+          <option value="America/New_York">USA</option>
+        </select>
+      <!--End Time Zone-->
+     </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-center text-center "> 
+          <p id="currentZone" class="text-white font-weight-bold display-3"></p>
+      </div>
+      
+  </div>
+</div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer>
+
+</footer>
+<!--Footer-->
+
+ 
+  <!--End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="lib/moment.js"></script>
+  <script src="lib/moment-timezone-with-data.js"></script>
+
+  <script>
+    
+    //Time Zone function
+    function giveTime(context){
+      if(context.value == "Asia/Shanghai") {
+        let currentTimeChina = moment().tz("Asia/Shanghai").format("HH:mm");
+        document.getElementById("currentZone").innerHTML = `時間是 ${currentTimeChina}`;
+        //console.log(currentTimeChina);
+      } else if(context.value == "Asia/Tokyo") {
+        let currentTimeJapan = moment().tz("Asia/Tokyo").format("HH:mm");
+        document.getElementById("currentZone").innerHTML = `時間は ${currentTimeJapan}`;
+       // console.log(currentTimeJapan);
+      } else {
+        let currentTimeUSA = moment().tz("America/New_York").format("HH:mm");
+        document.getElementById("currentZone").innerHTML = `Time is ${currentTimeUSA}`;
+        //console.log(currentTimeUSA);
+      }
+    }
+   
+  </script>
+
+</body>
+</html>
